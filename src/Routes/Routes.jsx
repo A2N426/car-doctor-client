@@ -5,7 +5,7 @@ import Login from "../Pages/Loging/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import Bookings from "../Pages/Bookings/Bookings";
 import Book from "../Pages/Book/Book";
-import ProtectedRoute from "./protectedRoute";
+import ProtectedRoute from "./ProtectedRoute";
 
 
 const router = createBrowserRouter([
@@ -27,8 +27,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/book/:id",
-        element: <Book></Book>,
-        loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+        element: <ProtectedRoute><Book></Book></ProtectedRoute>,
+        loader: ({ params }) => fetch(`https://car-doctor-server-a2n426.vercel.app/services/${params.id}`)
       },
       {
         path: "/bookings",

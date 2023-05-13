@@ -7,12 +7,12 @@ const Navbar = () => {
     const { user, logOut } = useContext(UserContext)
     const handleLogOut = () => {
         logOut()
-            .then(() => { })
+            .then(() => {})
             .catch(error => console.log(error))
     }
     const navLinks = <>
         <li><Link className="font-semibold" to="/">Home</Link></li>
-        <li><Link className="font-semibold" to="/about">About</Link></li>
+        <li><Link className="font-semibold">About</Link></li>
         {
             user?.email ?
                 <>

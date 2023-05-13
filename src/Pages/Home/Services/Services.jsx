@@ -3,12 +3,12 @@ import ServiceCard from "./ServiceCard";
 
 
 const Services = () => {
-    const [services,setServices]=useState([])
-    useEffect( ()=>{
-        fetch('http://localhost:5000/services')
-        .then(res=>res.json())
-        .then(data=>setServices(data))
-    },[])
+    const [services, setServices] = useState([])
+    useEffect(() => {
+        fetch('https://car-doctor-server-a2n426.vercel.app/services')
+            .then(res => res.json())
+            .then(data => setServices(data))
+    }, [])
     return (
         <div className="mt-10">
             <div className="text-center space-y-2">
@@ -18,7 +18,7 @@ const Services = () => {
             </div>
             <div className="grid grid-cols-1 mg:grid-cols-2 lg:grid-cols-3 gap-6">
                 {
-                    services.map(service=><ServiceCard
+                    services.map(service => <ServiceCard
                         key={service._id}
                         service={service}
                     ></ServiceCard>)
